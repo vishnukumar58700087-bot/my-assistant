@@ -8,8 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Unzip Files
-      run: unzip "My Assistant.zip"
+    - name: Unzip Files Automatically
+      run: unzip *.zip
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
