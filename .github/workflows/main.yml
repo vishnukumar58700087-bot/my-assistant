@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Unzip Files
-      run: unzip "My Assistant.zip" -d app/
+      run: unzip "My Assistant.zip"
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -17,15 +17,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      env:
-        NODE_OPTIONS: "--max-old-space-size=4096"
-
     - name: Build Debug APK
-      run: ./gradlew assembleDebug
-      env:
-        NODE_OPTIONS: "--max-old-space-size=4096"
+      run: gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
